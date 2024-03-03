@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(43, 22, 22);
+}
+
+.calcBody {
+    font-family: "Anta", sans-serif;
+    /* padding: 1em; */
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgb(51, 50, 50);
+    gap: 1em;
+    box-shadow: 2px 5px 10px 1px rgba(0, 0, 0, 0.466);
+}
+
+.calcBody, .calcBody__display {
+    border-radius: 5px;
+}
+
+.calcBody__display {
+    padding: .5em;
+    background-color: rgb(199, 196, 196);
+}
+
+.display p {
+    text-align: right;
+}
+
+.display__operatingString{
+    margin-bottom: .2em;
+    font-size: 1.5em;
+}
+.display__result {
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.calcBody__keyboard {
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+    /* padding: .2em; */
+}
+
+.calcBody__keyboard, .row {
+    gap: .5em;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.key{
+    margin: 0;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.5em;
+    height: 50px;
+    width: calc(96%/4);
+    background-color: rgb(160, 159, 159);
+    border: none;
+    border-radius: 5px;
+}
+
+.key:hover {
+    background-color: rgb(146, 146, 146);
+}
+.key:active{
+    background-color: rgb(135, 135, 135);
+}
+
+.key--dark, .key--darker{
+    color: white;
+}
+.key--dark:hover, .key--darker:hover{
+    background-color:rgb(71, 71, 71)
+}
+.key--dark:active, .key--darker:active{
+    background-color:rgb(60, 60, 60)
+}
+.key--dark {
+    background-color: rgb(97, 96, 96);
+}
+
+.key--darker {
+    background-color: rgb(80, 80, 80);
+}
