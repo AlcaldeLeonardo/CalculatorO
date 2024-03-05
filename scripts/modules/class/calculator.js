@@ -81,10 +81,19 @@ export class Calculator {
 
                 break;
             case `/`:
-                result = Div(num1, num2);
-                this.op2.innerHTML = result;
-                console.log("Division");
-                return result;
+                try{
+                    if(num2 != 0) {
+                        result = Div(num1, num2);
+                        this.op2.innerHTML = result;
+                        console.log("Division");
+                        return result;
+                    }else{
+                        throw new Error(`cannot be divided by 0(zero)`)
+                    }
+                }catch(error){
+                    console.error(error);
+                    return error;
+                }
 
                 break;
 
