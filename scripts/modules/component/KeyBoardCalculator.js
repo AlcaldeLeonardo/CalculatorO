@@ -14,6 +14,24 @@ function keysRender(keyboard) {
             if (i === 4 && j === 3)
                 key.className =
                     "key keyboard__key keyboard__key--darker key--darker";
+
+
+            // add btnNum class if the key is a number
+            if(j < 3 & i > 0) {
+                if(i != 4 || j != 0)key.classList.add(`btnNum`);
+            }
+            // ---------------------------------------
+            
+            // add btnOps class if the key is a operator
+            if(j == 3 && i != 4) {
+                key.classList.add(`btnOps`);
+            }
+
+            if(j == 3 && i == 4) {
+                key.classList.add(`btnEqual`)
+            }
+
+
             rowKey.appendChild(key);
         }
 
