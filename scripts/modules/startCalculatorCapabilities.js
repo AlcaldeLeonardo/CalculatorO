@@ -1,8 +1,10 @@
 import { Calculator } from "./class/calculator.js";
+import { playSoundBtn, playSoundError } from "./component/playSound.js";
 
 export function startCalculatorCapabilities() {
     const operating1 = document.querySelector(`.operatingString`);
     const operating2 = document.querySelector(`.result`);
+    
 
     console.log("aqui se iniciaron las capacidades de la calculadora");
 
@@ -12,7 +14,10 @@ export function startCalculatorCapabilities() {
     const btnNums = document.querySelectorAll(`.btnNum`);
     btnNums.forEach((btn) => {
         btn.addEventListener(`click`, () => {
-            calc.WriteNumsOp2(btn.innerHTML);
+            playSoundBtn();
+            if(!calc.getErrorFlag()){
+                calc.WriteNumsOp2(btn.innerHTML);
+            }
         });
     });
 
@@ -20,14 +25,18 @@ export function startCalculatorCapabilities() {
     const btnOps = document.querySelectorAll(`.btnOps`);
     btnOps.forEach((btn) => {
         btn.addEventListener(`click`, () => {
-            calc.setEqualFlag(false);
-            calc.WriteOperators(btn.innerHTML);
+            playSoundBtn();
+            if(!calc.getErrorFlag()){
+                calc.setEqualFlag(false);
+                calc.WriteOperators(btn.innerHTML);
+            }
         });
     });
 
     // Equal btn AddEventListener
     const btnEqual = document.querySelector(`.btnEqual`);
     btnEqual.addEventListener(`click`, () => {
+        playSoundBtn();
         calc.getEqual();
     });
 }

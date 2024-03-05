@@ -1,7 +1,9 @@
 import { Add, Div, Mult, Sus } from "../component/operations.js";
+import { playSoundError } from "../component/playSound.js";
 
 export class Calculator {
     #equalPressFlag;
+    #errorFlag
     constructor(op1, op2) {
         this.op1 = op1;
         this.op2 = op2;
@@ -9,6 +11,7 @@ export class Calculator {
         console.log("this.op1 :>> ", this.op1);
         console.log("this.op2 :>> ", this.op2);
         this.Clear();
+        this.setErrorFlag(false);
     }
     Clear() {
         let op1Value = `0`;
@@ -88,10 +91,13 @@ export class Calculator {
                         console.log("Division");
                         return result;
                     }else{
-                        throw new Error(`cannot be divided by 0(zero)`)
+                        playSoundError();
+                        throw new Error(`cannot be divided by 0(zero)... press F5`)
                     }
                 }catch(error){
                     console.error(error);
+                    this.setErrorFlag(true);
+                    console.log('this.getErrorFlag :>> ', this.getErrorFlag());
                     return error;
                 }
 
@@ -125,5 +131,12 @@ export class Calculator {
 
     getEqualFlag() {
         return this.#equalPressFlag;
+    }
+
+    getErrorFlag(){
+        return this.#errorFlag;
+    }
+    setErrorFlag(booleanValue){
+        this.#errorFlag = booleanValue;
     }
 }
