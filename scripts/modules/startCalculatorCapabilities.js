@@ -1,5 +1,5 @@
 import { Calculator } from "./class/calculator.js";
-import { playSoundBtn, playSoundError } from "./component/playSound.js";
+import { playSoundBtn } from "./component/playSound.js";
 
 export function startCalculatorCapabilities() {
     const operating1 = document.querySelector(`.operatingString`);
