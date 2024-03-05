@@ -58,19 +58,21 @@ export class Calculator {
                 result = Add(Number(num1), Number(num2));
                 return result;
 
-                break;
+                // break;
+                //switch breaks were omitted because return ends with the execution of 
+                //the block, then the breaks are redundant
             case `-`:
                 result = Sus(num1, num2);
                 this.op2.innerHTML = result;
                 return result;
 
-                break;
+                
             case `x`:
                 result = Mult(num1, num2);
                 this.op2.innerHTML = result;
                 return result;
 
-                break;
+                
             case `/`:
                 try{
                     if(num2 != 0) {
@@ -87,10 +89,11 @@ export class Calculator {
                     return error;
                 }
 
-                break;
+                
 
             default:
                 break;
+                //The break is left here to avoid unexpected errors
         }
     }
 
