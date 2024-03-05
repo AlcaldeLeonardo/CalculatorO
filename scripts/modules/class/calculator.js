@@ -8,8 +8,6 @@ export class Calculator {
         this.op1 = op1;
         this.op2 = op2;
         this.#equalPressFlag = false;
-        console.log("this.op1 :>> ", this.op1);
-        console.log("this.op2 :>> ", this.op2);
         this.Clear();
         this.setErrorFlag(false);
     }
@@ -32,8 +30,6 @@ export class Calculator {
         this.op2.innerHTML == 0
             ? this.UpdateScreen(this.op1.innerHTML, num)
             : this.UpdateScreen(this.op1.innerHTML, this.op2.innerHTML + num);
-
-        console.log("this.equalPressFlag :>> ", this.getEqualFlag());
     }
 
     WriteOperators(operator) {
@@ -46,40 +42,32 @@ export class Calculator {
             this.UpdateScreen(num1, 0);
         } else {
             let oldOperator = num1.slice(-1);
-            console.log("oldOperator :>> ", oldOperator);
             num1 = Number(num1.substr(0, num1.length - 1));
             num2 = Number(num2);
             newOpString = this.Operations(num1, num2, oldOperator);
             this.UpdateScreen(`${newOpString}${operator}`, 0);
-            console.log("num1 :>> ", num1);
-            console.log("num2 :>> ", num2);
         }
     }
 
     Operations(num1, num2, operator) {
-        console.log("num1, num2 :>> ", num1, num2);
         let result;
         // if(num1 != 0) {
         // }
         switch (operator) {
             case `+`:
                 result = Add(Number(num1), Number(num2));
-                console.log("suma");
-                console.log("result :>> ", result);
                 return result;
 
                 break;
             case `-`:
                 result = Sus(num1, num2);
                 this.op2.innerHTML = result;
-                console.log("resta");
                 return result;
 
                 break;
             case `x`:
                 result = Mult(num1, num2);
                 this.op2.innerHTML = result;
-                console.log("Multiplicacion");
                 return result;
 
                 break;
@@ -88,7 +76,6 @@ export class Calculator {
                     if(num2 != 0) {
                         result = Div(num1, num2);
                         this.op2.innerHTML = result;
-                        console.log("Division");
                         return result;
                     }else{
                         playSoundError();
@@ -97,7 +84,6 @@ export class Calculator {
                 }catch(error){
                     console.error(error);
                     this.setErrorFlag(true);
-                    console.log('this.getErrorFlag :>> ', this.getErrorFlag());
                     return error;
                 }
 
@@ -116,10 +102,6 @@ export class Calculator {
         if (!this.getEqualFlag()) {
             num1 = Number(num1.substr(0, num1.length - 1));
 
-            console.log("Aca va el resultado");
-            console.log("num1 :>> ", num1);
-            console.log("num2 :>> ", num2);
-            console.log("operator :>> ", operator);
             this.UpdateScreen(0, this.Operations(num1, num2, operator));
             this.setEqualFlag(true);
         }

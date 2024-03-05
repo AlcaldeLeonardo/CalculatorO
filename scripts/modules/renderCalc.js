@@ -4,6 +4,4 @@ export function RenderCalc() {
     const calcContainer = document.querySelector(`#calcContainer`);
 
     CalcBodyRender(calcContainer);
-
-    console.log("Soy la calculadora");
 }
