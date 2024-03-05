@@ -12,8 +12,8 @@ export class Calculator {
         this.setErrorFlag(false);
     }
     Clear() {
-        let op1Value = `0`;
-        let op2Value = `0`;
+        let op1Value = 0;
+        let op2Value = 0;
         let operator = ``;
         this.UpdateScreen(`${op1Value} ${operator}`, op2Value);
     }
@@ -27,9 +27,13 @@ export class Calculator {
             this.UpdateScreen(0, 0);
             this.setEqualFlag(false);
         }
-        this.op2.innerHTML == 0
-            ? this.UpdateScreen(this.op1.innerHTML, num)
-            : this.UpdateScreen(this.op1.innerHTML, this.op2.innerHTML + num);
+        if(num == `.`) {
+            this.UpdateScreen(this.op1.innerHTML, this.op2.innerHTML + num);
+        }else{
+            this.op2.innerHTML == `0`
+                ? this.UpdateScreen(this.op1.innerHTML, num)
+                : this.UpdateScreen(this.op1.innerHTML, this.op2.innerHTML + num);
+        }
     }
 
     WriteOperators(operator) {
@@ -92,6 +96,8 @@ export class Calculator {
                 
 
             default:
+                result = Number(this.op2.innerHTML);
+                return result;
                 break;
                 //The break is left here to avoid unexpected errors
         }

@@ -18,6 +18,16 @@ export function startCalculatorCapabilities() {
         });
     });
 
+    //btnFloat AddEventListener
+    const btnFloat = document.querySelector(`.btnFloat`);
+    btnFloat.addEventListener(`click`, ()=>{
+        const displayResult = operating2.innerHTML
+        playSoundBtn();
+            if(!calc.getErrorFlag() && displayResult.indexOf(`.`) == -1 && !calc.getEqualFlag()){
+                calc.WriteNumsOp2(btnFloat.innerHTML);
+            }
+    })
+    
     // Operatos`s addEventListener
     const btnOps = document.querySelectorAll(`.btnOps`);
     btnOps.forEach((btn) => {
@@ -29,6 +39,7 @@ export function startCalculatorCapabilities() {
             }
         });
     });
+
 
     // Equal btn AddEventListener
     const btnEqual = document.querySelector(`.btnEqual`);

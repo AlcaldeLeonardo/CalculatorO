@@ -16,8 +16,9 @@ function keysRender(keyboard) {
                     "key keyboard__key keyboard__key--darker key--darker";
 
             // add btnNum class if the key is a number
-            if ((j < 3) & (i > 0)) {
-                if (i != 4 || j != 0) key.classList.add(`btnNum`);
+            if (j < 3 && i > 0) {
+                if (i != 4 || j != 0 && j != 2 || i != 4)//condition that excepts buttons, within the range of this matrix [j,i] , that are not really numbers, such as the `-/+` key and the `.` key 
+                    key.classList.add(`btnNum`);
             }
             // ---------------------------------------
 
@@ -28,6 +29,9 @@ function keysRender(keyboard) {
 
             if (j == 3 && i == 4) {
                 key.classList.add(`btnEqual`);
+            }
+            if (j == 2 && i == 4) {
+                key.classList.add(`btnFloat`)
             }
 
             rowKey.appendChild(key);
