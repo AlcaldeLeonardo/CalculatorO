@@ -1,10 +1,11 @@
 import { Add, Div, Mult, Sus } from "../component/operations.js";
 
 export class Calculator{
+    #equalPressFlag;
     constructor(op1,op2){
         this.op1 = op1;
         this.op2 = op2
-        this.equalPressFlag = false;
+        this.#equalPressFlag = false;
         console.log('this.op1 :>> ', this.op1);
         console.log('this.op2 :>> ', this.op2);
         this.Clear();
@@ -22,15 +23,15 @@ export class Calculator{
     }
 
     WriteNumsOp2(num){
-        if(this.equalPressFlag) {
+        if(this.getEqualFlag()) {
             this.UpdateScreen(0,0)
-            this.equalPressFlag = false;
+            this.setEqualFlag(false)
         }
         this.op2.innerHTML == 0
             ? this.UpdateScreen(this.op1.innerHTML, num)
             : this.UpdateScreen(this.op1.innerHTML, this.op2.innerHTML + num);
 
-            console.log('this.equalPressFlag :>> ', this.equalPressFlag);
+            console.log('this.equalPressFlag :>> ', this.getEqualFlag());
     }
 
     WriteOperators(operator){
@@ -109,7 +110,7 @@ export class Calculator{
         let operator = num1.slice(-1)
         let num2 = Number(this.op2.innerHTML);
 
-        if(!(this.equalPressFlag)){
+        if(!(this.getEqualFlag())){
             num1 = Number(num1.substr(0, num1.length-1))
     
             console.log("Aca va el resultado")
@@ -117,8 +118,16 @@ export class Calculator{
             console.log('num2 :>> ', num2);
             console.log('operator :>> ', operator);
             this.UpdateScreen(0,this.Operations(num1,num2,operator))
-            this.equalPressFlag = true;
+            this.setEqualFlag(true);
         }
 
+    }
+
+    setEqualFlag(value){
+        this.#equalPressFlag = value
+    }
+
+    getEqualFlag(){
+        return this.#equalPressFlag;
     }
 }

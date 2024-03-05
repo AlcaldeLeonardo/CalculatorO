@@ -22,7 +22,7 @@ export function startCalculatorCapabilities(){
     const btnOps = document.querySelectorAll(`.btnOps`)
     btnOps.forEach(btn => {
         btn.addEventListener(`click`,()=>{
-            calc.equalPressFlag = false;
+            calc.setEqualFlag(false);
             calc.WriteOperators(btn.innerHTML)
         })
     });
