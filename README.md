@@ -4,10 +4,10 @@ I have used DOM manipulation to render absolutely the entire calculator on the s
 
 This is also how I have added the calculator's own functions through js.
 
-###Problems that arose along the way
+### Problems that arose along the way
 The problems that caused me the most difficulties were the floating point, the fact that I could not add, multiply or divide correctly, each operation was out of date. In each resolution I marked a commit with more details for the reader.
 
-###Skills that I wanted to reinforce with this exercise
+### Skills that I wanted to reinforce with this exercise
 
 - modularity
 - Object-oriented programming
