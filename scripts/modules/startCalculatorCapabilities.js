@@ -47,4 +47,11 @@ export function startCalculatorCapabilities() {
         playSoundBtn();
         calc.getEqual();
     });
+    // btnC addEventListener
+    const btnC = document.querySelector(`.btnC`);
+    btnC.addEventListener(`click`, ()=>{
+        playSoundBtn();
+        calc.setErrorFlag(false)
+        calc.Clear();
+    })
 }

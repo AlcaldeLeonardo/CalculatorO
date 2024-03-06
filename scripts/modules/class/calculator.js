@@ -85,7 +85,7 @@ export class Calculator {
                         return result;
                     }else{
                         playSoundError();
-                        throw new Error(`cannot be divided by 0(zero)... press F5`)
+                        throw new Error(`cannot be divided by 0(zero)`)
                     }
                 }catch(error){
                     console.error(error);
