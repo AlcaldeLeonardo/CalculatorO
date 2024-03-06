@@ -36,9 +36,19 @@ function keysRender(keyboard) {
             if(i == 0 && j == 2) {
                 key.classList.add(`btnC`);
             }
+            
+            if(i == 0 && j == 0) {
+                key.classList.add(`btnBckspace`);
+            }
+
             if(i == 0 && j == 1) {
                 key.classList.add(`btnCE`);
             }
+
+            if(i == 4 && j == 0) {
+                key.classList.add(`btnSound`);
+            }
+
 
             rowKey.appendChild(key);
         }
@@ -50,7 +60,7 @@ function keysRender(keyboard) {
 function keyContent() {
     const keys = document.querySelectorAll(".key");
     let content = [
-        `%`,
+        `←`,
         `CE`,
         `C`,
         `/`,
@@ -66,7 +76,7 @@ function keyContent() {
         `2`,
         `3`,
         `+`,
-        `-/+`,
+        `🔊`,
         `0`,
         `.`,
         `=`,

@@ -3,13 +3,15 @@ import { playSoundError } from "../component/playSound.js";
 
 export class Calculator {
     #equalPressFlag;
-    #errorFlag
+    #errorFlag;
+    #soundFlag;
     constructor(op1, op2) {
         this.op1 = op1;
         this.op2 = op2;
         this.#equalPressFlag = false;
         this.Clear();
         this.setErrorFlag(false);
+        this.setSoundFlag(true)
     }
     Clear() {
         let op1Value = 0;
@@ -84,7 +86,7 @@ export class Calculator {
                         this.op2.innerHTML = result;
                         return result;
                     }else{
-                        playSoundError();
+                        playSoundError(this.getSoundFlag());
                         throw new Error(`cannot be divided by 0(zero)`)
                     }
                 }catch(error){
@@ -129,5 +131,16 @@ export class Calculator {
     }
     setErrorFlag(booleanValue){
         this.#errorFlag = booleanValue;
+    }
+    
+    setSoundFlag(booleanValue){
+        this.#soundFlag = booleanValue;
+    }
+    getSoundFlag() {
+        return this.#soundFlag;
+    }
+
+    toggleSoundFlag(){
+        this.#soundFlag = !this.#soundFlag;
     }
 }
