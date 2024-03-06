@@ -36,6 +36,9 @@ function keysRender(keyboard) {
             if(i == 0 && j == 2) {
                 key.classList.add(`btnC`);
             }
+            if(i == 0 && j == 1) {
+                key.classList.add(`btnCE`);
+            }
 
             rowKey.appendChild(key);
         }

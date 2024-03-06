@@ -54,4 +54,10 @@ export function startCalculatorCapabilities() {
         calc.setErrorFlag(false)
         calc.Clear();
     })
+
+    const btnCE = document.querySelector(`.btnCE`)
+    btnCE.addEventListener(`click`, ()=> {
+        playSoundBtn();
+        calc.UpdateScreen(operating1.innerHTML, 0)
+    })
 }
