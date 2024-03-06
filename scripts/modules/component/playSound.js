@@ -1,5 +1,5 @@
-const audioBtn = new Audio(`../sounds/mech-keyboard-02-102918.mp3`)
-const audioError = new Audio(`../sounds/invalid-selection-39351.mp3`)
+const audioBtn = new Audio(`/sounds/mech-keyboard-02-102918.mp3`)
+const audioError = new Audio(`/sounds/invalid-selection-39351.mp3`)
 
 
 export function playSoundBtn(soundMode) {
