@@ -79,7 +79,7 @@ export class Calculator {
                 return result;
 
                 
-            case `/`:
+            case `÷`:
                 try{
                     if(num2 != 0) {
                         result = Div(num1, num2);
